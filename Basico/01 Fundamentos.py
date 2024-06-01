@@ -151,7 +151,7 @@ número de pessoas (duas variaveis iniciais). Determine quantos ovos ficarão po
 sobrarão pois não puderam ser divididos igualmente. Lembre que o número de ovos por pessoa é
 um número inteiro'''
 
-'''
+
 ano = input("Em que ano estamos?")
 nasc = input("Em que ano você nasceu?")
 idade = int(ano) - int(nasc)
@@ -180,7 +180,7 @@ divisao = int(ovos) // int(pessoas)
 resto = int(divisao) % int(pessoas)
 print ("A divisão resultou em %.0f para cada, restando %.0f ovos" %(divisao,resto))
 
-'''
+
 
 ## OPERADORES LÓGICOS
 '''Aplicados a operações lógicas e tem como resultado verdadeiro ou falso'''
@@ -318,7 +318,7 @@ o print para mostrar o calculo completo
 2) Crie um programa que mostre o dia, mês, ano, hora, minuto e segundos inseridos pelo usuário.
 Formate o valor
 '''
-'''
+
 num1= input("Um numero: ")
 num2= input("Outro numero: ")
 div = int(num1) / int(num2)
@@ -332,7 +332,7 @@ minuto = input("Insira o minuto: ")
 segundo = input("Insira o segundo: ")
 
 print ("%s/%s/%s/ %s:%s:%s" %(dia, mes, ano, hora, minuto,segundo))
-'''
+
 
 ## ATRIBUIÇÃO E COMBINAÇÃO DE OPERADORES LÓGICOS
 
@@ -353,12 +353,12 @@ Leia esses valores  por input
 2) Crie um programa que diga se a senha está correta e portanto você tem acesso ao sistema. A senha
 deverá ser salva no código, e a tentativa deve ser lida por input
 '''
-'''
+
 media = input("Qual é sua média?")
 exame = input ("Qual é sua nota no exame?")
 aprovado = int(media) >= 7 or int(exame) >= 5
 print (aprovado)
-'''
+
 
 senha = "mysharepoint123"
 tentativa = input ("coloque a senha ")
@@ -399,4 +399,32 @@ print ("a" != "a") #False
 
 texto = "Programação"
 print ("a" in texto) #Se está contido a na palavra Programação, retornará verdadeiro
+print ("Vinte" not in texto)
+
+tamanho = len(texto)
+print (tamanho) #11
+
+#ATIVIDADES
+'''
+1) Crie uma única string que contém seu nome e sobrenome, em seguida use o Slicing para separar
+o nome em uma variavel e o seu sobrenome em outra. Printe esses valores
+2) Leia uma String através do input e retire o ultimo caractere
+3) Faça um programa que leia uma String através do input e diga se ela possui uma vogal
+4) Faça um programa que insira a palavra "ABC" na primeira posição de uma string lida por input
+'''
+nome = "Felipe Otávio"
+prim_nome = nome[:6]
+sobrenome = nome[6:]
+print(prim_nome + "" + sobrenome)
+
+palavra = input("Insira uma palavra: ")
+print (palavra[:-1])
+
+palavra = input("Insira uma palavra: ")
+possui_vogal = ("a" in palavra) or ("e" in palavra) or ("i" in palavra) or ("o" in palavra) or ("u" in palavra)
+print (possui_vogal)
+
+palavra = input("Insira uma palavra: ")
+print ("ABC" + palavra[0:])
+
 
