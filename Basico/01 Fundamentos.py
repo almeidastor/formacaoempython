@@ -390,7 +390,7 @@ print (texto[::-1]) #ortem
 texto = "abcdefg"
 texto = texto [:3] + texto [4:] #abcefg
 
-#OPERADORES DE STRINGS
+## OPERADORES DE STRINGS
 texto1 = "Ola"
 texto2 = "Ola"
 igual = texto1 == texto2
