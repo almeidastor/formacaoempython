@@ -65,7 +65,7 @@ adolescente, até 65 adulto. E em nenhum desses casos é um idoso
 possibilidades são soma (+), subtração (-), divisão (/) e multiplicação (*). Realize a operação escolhida
 sobre os dois numeros
 '''
-'''
+
 saldo = 1200.00
 deve_cartao = 500.00
 
@@ -141,14 +141,14 @@ elif operador == "4":
     print(resultado)
 else:
     print("Coloque um número válido")
-'''
+
 
 ## LAÇOS WHILE
 '''
 EXECUTA UM CÓDIGO ENQUANTO A CONDIÇÃO DELE FOR VERDADEIRA
 '''
 
-'''
+
 interacao = 10
 while (interacao > 0):
     print(interacao)
@@ -191,7 +191,7 @@ while (True):
     print (num_atual)
     num_atual += 1
 print ("Encerrou!")
-'''
+
 
 ## ATIVIDADES
 '''
@@ -204,7 +204,7 @@ e retorne a soma de todos eles
 5) Crie um programa que receba como input uma string. Em seguida percorra a string e diga quantos espaços
 em branco essa string tem
 '''
-'''
+
 contador = 1
 indice = 1
 numero_armazenamento = 0
@@ -229,4 +229,91 @@ while (contador <= 5):
         numero_list = int(input("Insira o %dº número: " % (indice)))
 print(numero_armazenamento)
 
+
+## USO DE FOR
 '''
+Ele vai executar um intervalo e ele vai executar cada valor desse intervalo
+'''
+for x in range(10):
+    print (x)
+
+'''
+A função RANGE pode ter 3 parametros, a posição de inicio, a posição de parada e o step (passo)
+Se não for informado o padrão de inicio é 0 e o Stop é o único que é obrigatório ele sempre 
+para um número antes
+'''
+
+for x in range(5,20,5):
+    print (x)
+
+texto = "123t56789"
+for x in range (0, len(texto)):
+    print (texto[x])
+
+letra = input("Digite uma letra: ")
+if (len(letra) != 1):
+    print("Precisa ter um digito")
+else:
+    texto = input("Digite um texto: ")
+    for i in range (0, len(texto)):
+        if letra == texto [i]:
+         print("Encontrei a letra %s na posisção %d" %(letra, i))
+
+for x in range(1,4):
+    print("------------------")
+    for y in range(1,11):
+        print("%d x %d = %d" % (x,y,x*y))
+
+## ATIVIDADES
+'''
+1) Crie um programa que receba uma string por input e conte quantos caracteres ela tem,
+não leve em conta os caracteres por espaço. Você não deve usar o len()
+
+2) Crie um programa que faça o calculo do fatorial de um número. O fatorial a ser calculado 
+deve ser recebido por input
+
+3) Crie um programa que leia uma quantidade arbitraria de textos e concatene eles numa string unica
+
+4) Crie um programa que printe a tabuada de divisão de um número lido por input
+
+5) (DESAFIO) Crie um programa que percorra os numeros de 3 até 30 e diga se o número é primo ou não
+'''
+
+texto = input("Digite um texto: ")
+num_caracteres = 0
+for letra in texto:
+    if(letra != " ,"):
+        num_caracteres +=1
+print ("Tem %d caracteres no texto" % (num_caracteres))
+
+
+fatorial_str = input("Digite o fatorial desejado: ")
+fatorial_numero = int(fatorial_str)
+resultado = 1
+for i in range(1,fatorial_numero + 1):
+    resultado *=1
+print ("O fatorial de %d é %d" % (fatorial_numero, resultado))
+
+
+numero_de_leituras = int(input("Digite o numero de textos que serão lidos "))
+texto_total = ""
+for i in range(numero_de_leituras):
+    texto_total += input("Digite o texto: ")
+print ("Texto completo: ", texto_total)
+
+
+numero = int(input("digite a tabuada de divisão desejada: "))
+for num in range(1,11):
+    print("%d / %d = %f" % (num, numero, num / numero))
+
+
+for numero in range (3,31):
+    e_primo = True
+    for num_teste in range(2,numero):
+        if (numero % num_teste == 0):
+         e_primo = False
+         break
+    if (e_primo):
+        print ("O numero %d é primo" % (numero))
+    else:
+        print("O numero %d não é primo" % (numero))
