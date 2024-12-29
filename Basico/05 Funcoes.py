@@ -166,7 +166,7 @@ def calculadora(num1, num2, op):
         return a + b
     def subtrai(a,b):
         return a - b
-    if (op == '+')
+    if (op == '+'):
         return soma(num1,num2)
     elif(op=='+'):
         return subtrai(num1,num2)
@@ -174,7 +174,7 @@ def calculadora(num1, num2, op):
 ## DECORATORS
 '''São uma forma mais moderna de criar ou executar funções de forma alinhada'''
 
-<<class 'function'>
+
 def DeixaMaiusculo(func):
     def inner_func():
         return func().upper()
