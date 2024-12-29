@@ -69,3 +69,117 @@ executa_func(minha_funcao,10)
 
 
 ## FUNÇÕES COM RETORNO DE VALORES
+
+def subtrai(num1,num2):
+    valor = num1 - num2
+    return valor
+
+subtracao = subtrai(10,3)
+print (subtracao)
+
+def len_int(numero):
+    numero_em_texto = str(numero)
+    return len(numero_em_texto)
+
+num1 = 10
+num2 = 1230
+
+tamanho1 = len_int(num1)
+tamanho2 = len_int(num2)
+
+print("O numero %d tem %d digitos" % (num1, tamanho1)) #O numero 10 tem 2 digitos
+print("O numero %d tem %d digitos" % (num2, tamanho2)) #O numero 1230 tem 4 digitos
+
+
+def retorna_multiplo():
+    return 1,2
+
+valor = retorna_multiplo()
+print(valor)
+print(type(valor))
+
+## FUNÇÕES LAMBDA
+'''Funções Lambda é uma função anonima mais simples, diferente de uma função normal, ela não
+tem nome. Ela pode receber qualquer numero de parametro, mas ela só tem uma expressão'''
+
+faz_soma = lambda x : x + 10
+
+
+## FUNÇÕES LAMBDA NA PRÁTICA
+
+faz_soma = lambda x : x + 10
+valor = faz_soma(2)
+print(valor) #12
+
+multiplica = lambda x,y : x * y
+valor = multiplica(2,10)
+print(valor) #20
+
+def multiplica(y):
+    return lambda x : x * y
+
+valor = multiplica(2)
+resultado = valor (10)
+print(resultado)
+
+
+## FUNÇÕES RECURSIVAS
+'''Existe problemas de programação que a gente resolve com uma função recursiva
+A função recursiva é semelhante a um laço, a diferença é que ela vai retornar um valor toda vez
+que ela for executada, e ela executa a si mesmo. Precisa ter uma condição de parada'''
+
+def print_num(num):
+    print(num)
+    if num >=10:
+        return
+    print_num(num+1)
+
+print_num(0)
+
+def print_str(texto, indice):
+    if indice == len(texto):
+        return
+    print (texto[indice])
+    print_str(texto,indice + 1)
+
+print_str("Python", 0)
+
+def fatorial(num):
+    if(num == 1):
+        return 1
+    return num + fatorial(num-1)
+
+print(fatorial(10)) #3628800
+
+
+## FUNÇÕES ANINHADAS
+'''É quando você tem uma segunda função declarada dentro de outra função. E a função "filho" só pode ser declarada 
+dentro da função pai'''
+
+def pai():
+    def filho():
+        print("Sou filho")
+
+
+def calculadora(num1, num2, op):
+    def soma(a,b):
+        return a + b
+    def subtrai(a,b):
+        return a - b
+    if (op == '+')
+        return soma(num1,num2)
+    elif(op=='+'):
+        return subtrai(num1,num2)
+
+## DECORATORS
+'''São uma forma mais moderna de criar ou executar funções de forma alinhada'''
+
+<<class 'function'>
+def DeixaMaiusculo(func):
+    def inner_func():
+        return func().upper()
+    return inner_func
+@DeixaMaiusculo
+def retorna_string():
+    return "string de teste"
+
