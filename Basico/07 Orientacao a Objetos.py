@@ -116,3 +116,99 @@ filha2 = ClasseFilha2() #Sou a classe filha 2
 
 '''Aqui temos uma sobreposição de um método da classe pai, caso você precise sobrescrever, você
 precisa ter o que o método foi sobrescrito tem.'''
+
+
+## HERANÇA MULTIPLA
+''' Quando uma classe filho herda de mais de uma classe '''
+
+class Base1:
+    def __init__(self,atributo1):
+        self.atributo1 = atributo1
+    def Base1_print(self):
+        print("Base1")
+
+class Base2:
+    def __init__(self,atributo1):
+        self.atributo2 = atributo1
+    def Base2_print(self):
+        print("Base2")
+
+class MinhaClasse(Base1,Base2):
+    def __init__(self):
+        Base1.__init__(self,10)
+        Base2.__init__(self, 20)
+
+var = MinhaClasse()
+print(var.atributo1)
+print(var.atributo2)
+var.Base1_print()
+var.Base2_print()
+
+
+## MODIFICADORES DE ACESSO
+''' Controla os acessos e garante a seguranã correta dos dados. Eles podem ter níveis de acesso por
+padrão.
+>> Público: Das instancias da classe, todos os atributos e todas as funções podem ser acesadas
+>> Privado: Se você tem um atributo ou uma função privada, significa que essas funções e esses atributos
+só podem ser acessados de dentro da própria classe. Uma variável da classe não pode manipular esses atributos
+>> Protected: Só herda por convenção. Não usa
+'''
+
+class Segredo:
+    def __init__(self):
+        self.__segredo = 'Senha123' # o usuario pode testar se a senha está certa, mas não ver a senha
+
+seg = Segredo()
+print(seg.__segredo) # Retorna que o atributo segredo não existe. Para deixar publico, remover um _
+
+#Funções privadas
+'''Dentro da classe Segredo'''
+    def __printa_segredo(self):
+    print(self.__segredo)
+
+    def printa_segredo(self):
+    self.__printa_segredo() #Senha123
+
+#Funções protected
+
+class Base:
+    def __base__privada(self):
+        print('Pertençõ somente a base')
+    def _baseprotegida(self):
+        print("Pertenço a Base e a quem herdar")
+
+Class Filha(Base):
+    def acessa_protegida(self):
+        self.baseprotegida()
+
+filha = Filha()
+filha.acessa_protegida() #Pertenco a base e a quem me herdar
+filha.baseprotegida() #Pertenco a base e a quem me herdar
+
+
+
+## PROTEGENDO ATRIBUTOS COM PROPERTY
+'''Podemos usar uma função property para ler uma propriedade e também para alterar uma propriedade. Ela
+vai fazer uma chamada de uma função e definir para alterar aquela propriedade'''
+
+class Pessoa:
+    def __init__(self,nome):
+        self.__nome = nome
+
+    def get_nome(self):
+        print("pegando nome")
+        return self.__nome
+
+    def set_nome(self,nome):
+        if len(nome)>0:
+            print("Setando nome")
+            self.__nome = nome
+
+    nome = property(get_nome)
+
+instancia = Pessoa("Maria")
+print(instancia.nome)
+instancia.nome = "Marcos"
+
+
+##Protegendo Atributos com Decorators
