@@ -212,3 +212,105 @@ instancia.nome = "Marcos"
 
 
 ##Protegendo Atributos com Decorators
+'''Outra forma de proteger atributos são pelos decoradores. Uma propriedade que vai acida de uma chamada de função
+com o @'''
+
+class Natural:
+    def __init__(self,numero):
+        self.__numero = numero
+
+    @property
+    def numero(self):
+        print("pegando numero")
+        return self.__numero
+
+    @numero.setter
+    def numero(self, value):
+        if value >= 0:
+            self.__numero = value
+            print("setando numero para", value)
+
+numero = Natural(10)
+numero.numero = 20
+print(numero.numero)
+
+
+## Métodos Estáticos
+'''Atributo que não pertence a instancia da classe, mas a própria classe, então você não precisa de uma instancia
+pra ler aquele atributo'''
+
+class Teste:
+    def __init__(self, gasolina):
+        pass
+
+    @classmethod
+    def class_method(cls):
+        print(cls)
+    @staticmethod
+    def static_method():
+        print("static method"
+
+    Teste.class_method()
+    Teste.static_method()
+
+    testando = Teste("aditivada")
+    testando.class_method()
+
+    class Veiculo:
+        def __init__(self, nome, gasolina, potencia):
+            self.nome = nome
+            self.gasolina = gasolina
+            self.potencia = potencia
+        @classmethod
+        def cria_carro(cls):
+            return cls('carro', 'comum', 200)
+        @classmethod
+        def cria_trator(cls):
+            return cls('trator', 'comum', 200)
+
+
+## OBJETOS POR VALOR E REFERENCIA
+''' As vezes fazemos cópia de variaveis ou objetos, e como o python vai tratar, pode variar o tipo do objeto
+Acopla-se por
+Valor: Um novo objeto é criado
+Por Referencia: Apontam para o mesmo local em memória
+'''
+'''
+Por valor é imutável:
+Se você copiar ela, ela vai ser copiada por valor, porque é imutável, então é feita outra cópia é imutável
+
+Por referencia, quando ele pode ser mutável 
+
+No Python Objetos como classes e lista são mutaveis, portanto copiados por referencia
+Tipos primitivos são imutaveis, portanto copiados por valor
+
+delta = 10
+delta = 20
+'''
+
+## Exemplos de Valor e Referência
+
+lst1 = 10
+lst2 = lst1
+lst2 = 20
+print(lst1) #10
+
+lst1 = [1,2,3]
+lst2 = lst1
+lst2.append(10)
+print(lst1) #[1,2,3,10]
+
+## Deletando objetos
+
+numero = 10
+del numero #Objeto não existe mais
+
+
+## Testando tipos e objetos
+'''Como ver se um objeto pertence a uma determinada classe
+se eu quero ver se o objeto é inteiro, se cria uma variavel para armazenar o resultado e ai se passa o
+ objeto ou o valor e a classe ou o tipo de objeto que se quer testar'''
+
+
+e_inteiro = isinstance(5, int) #True
+e_inteiro = isinstance(5, (int, float, str)) #True
